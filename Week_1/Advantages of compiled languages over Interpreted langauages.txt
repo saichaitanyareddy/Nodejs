@@ -1,0 +1,8 @@
+Advantages of compiled languages over Interpreted languages:
+Assembler, COBOL, PL/I, C/C++ are all translated by running the source code through a compiler.
+This results in very efficient code that can be executed any number of times. 
+The overhead for the translation is incurred just once, when the source is compiled.
+thereafter, it need only be loaded and executed.
+
+Interpreted languages, in contrast, must be parsed, interpreted, and executed each time the program is run, thereby greatly adding to the cost of running the program. For this reason, interpreted programs are usually less efficient than compiled programs.
+Some programming languages, such as REXXand Java, can be either interpreted or compiled.
