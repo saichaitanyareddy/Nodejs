@@ -1,7 +1,7 @@
 var fs=require('fs');
 var c=0;
 
-async function appendProm(file1,file2)
+function appendProm(file1,file2)
 	{	c=c+1;
 		console.log("files appending"+c);
 		let prom= new Promise((resolve,reject)=>
@@ -9,34 +9,41 @@ async function appendProm(file1,file2)
 			fs.readFile(file2,'utf-8',function(err,data){fs.appendFile(file1,data,()=>{});});
 		});
 		
-	  let b=await fs.readFile('new.txt','utf-8',function(err,data){fs.appendFile(file1,data,()=>{});});
-	  console.log(b);
-	  console.log("files appended"+c);
+	
+	console.log("files appended"+c);
 		
 	
 	}
 
+async function Async(){
+	let a=await appendProm('file1.txt','file2.txt');
+	console.log(a);
+	let b=await appendProm('file1.txt','file3.txt');
+	console.log(b);
+	let c=await appendProm('file1.txt','file4.txt');
+	console.log(c);
+	let d=await appendProm('file1.txt','file5.txt');
+	console.log(d);
+}
 
-appendProm('file1.txt','file2.txt').then(appendProm('file1.txt','file3.txt')).then(appendProm('file1.txt','file4.txt')).then(appendProm('file1.txt','file5.txt')).catch((error)=>console.log(error));
+Async();
+console.log("Last");
+------------------------------------------------------------------------------------------------------
 
 
-
-console.log("here i am at the bottom");
-
--------------------------------------------------------------------------------------------------------------
-
-cmd>node async.js
+cmd>node Async_Await.js
 files appending1
+files appended1
+Last
+undefined
 files appending2
+files appended2
+undefined
 files appending3
+files appended3
+undefined
 files appending4
-here i am at the bottom
-undefined
 files appended4
 undefined
-files appended4
-undefined
-files appended4
-undefined
-files appended4
+
 
